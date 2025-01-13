@@ -1,0 +1,52 @@
+---
+title: "R Basics Exercises"
+author: "Alex Monteil"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\textbf{What is 2 to the power of 5 ?}\
+
+```{r}
+2^5
+```
+
+\textbf{Create a vector called stock prices with the following data points: 23,27,23,21,34}\
+
+```{r}
+stock_prices <- c(23,27,23,21,34)
+stock_prices
+```
+
+\textbf{Assign names to the price data points relating to the day of the week, starting with Mon, Tue, Wed, etc ...}\
+
+```{r}
+names(stock_prices) <- c("Mon", "Tue", "Wed", "Thu", "Fri")
+stock_prices
+```
+\textbf{What is the average of the stock price for the week ?}\
+
+```{r}
+mean(stock_prices)
+```
+\textbf{Create a vector called over_23 consisting of logicals that correspond to the days where the stock price was more than $23}\
+
+```{r}
+over_23 <- stock_prices > 23
+over_23
+```
+\textbf{Use the over_23 vector to filter out the sock_prices vector only return the elements over $23}\
+
+```{r}
+stock_prices[over_23]
+```
+\textbf{Use a built in function to find the day the price was the highest}\
+
+```{r}
+stock_prices[which.max(stock_prices)]
+```
+

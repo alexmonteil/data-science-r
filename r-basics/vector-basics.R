@@ -57,6 +57,6 @@ comp4 <- v1 < 2 # returns a logical vector for results of element wise compariso
 # Vector filtering
 
 v <- c(1,2,3,4)
-names(v) <- c("a","b","c","d")
+names(v) <- c("a", "b", "c", "d")
 v[v > 2]
 
