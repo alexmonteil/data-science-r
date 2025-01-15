@@ -90,11 +90,9 @@ mat1 %*% mat2 # Performs matrix product
 mat1_inverse <- solve(mat1) # Returns inverse of the matrix argument or error
 mat1_transpose <- t(mat1) # Returns transpose of the matrix argument
 
-
 # Matrix comparisons
 
 mat1 < 1 # Returns logical matrix for results of element wise comparison
 mat1 == mat2 # Returns logical matrix for results of element wise comparison
 mat1 < mat2 # Returns logical matrix for results of element wise comparison
-
 
