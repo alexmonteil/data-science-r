@@ -1,0 +1,85 @@
+---
+title: "R data frames exercises"
+author: "Alex Monteil"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+```
+
+\textbf{1) Recreate the dataframe by creating vectors first}\
+
+```{r}
+age <- c(22, 25, 26)
+weight <- c(150, 165, 120)
+sex <- c("M", "M", "F")
+df <- data.frame(age, weight, sex)
+rownames(df) <- c("Sam", "Frank", "Amy")
+print(df)
+```
+
+\textbf{2) Check is mtcars is a data frame}\
+
+```{r}
+is.data.frame(mtcars)
+```
+
+\textbf{3) Convert the matrix into a data frame}\
+
+```{r}
+mat <- matrix(1:25, nrow = 5)
+df2 <- as.data.frame(mat)
+print(df2)
+```
+
+\textbf{4) Set the mtcars built in data frame in a df\_cars variable}\
+
+```{r}
+df_cars <- mtcars
+```
+
+\textbf{5) Display the first 6 rows of df\_cars}\
+
+```{r}
+head(df_cars)
+```
+
+\textbf{6) What is the average mpg value for all cars ?}\
+
+```{r}
+mean(df_cars$mpg)
+```
+\textbf{7) Select cars that have 6 cylinders}\
+
+```{r}
+subset(df_cars, subset = cyl == 6)
+```
+
+\textbf{8) Select columns am, gear and carb}\
+
+```{r}
+df_cars[,c("am", "gear", "carb")]
+```
+
+\textbf{9) Create a new column called performance which is calculated as hp divided by wt}\
+
+```{r}
+df_cars$performance <- df_cars$hp/df_cars$wt
+head(df_cars)
+```
+
+\textbf{10) Your performance column will have several decimal precision. Figure out how to use round to reduce it to 2 decimal places}\
+
+```{r}
+df_cars$performance <- round(df_cars$performance, digits = 2)
+head(df_cars)
+```
+
+\textbf{11) What is the mpg of the Hornet Sportabout ?}\
+
+```{r}
+df_cars["Hornet Sportabout", "mpg"]
+```
+
