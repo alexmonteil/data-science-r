@@ -9,7 +9,7 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-\textbf{Create 2 vectors A and B where A is (1,2,3) and B is (4,5,6) and create a 2 by 3 matrix from the vectors such that each vector is a row}\
+\textbf{1) Create 2 vectors A and B where A is (1,2,3) and B is (4,5,6) and create a 2 by 3 matrix from the vectors such that each vector is a row}\
 
 ```{r}
 A <- 1:3
@@ -19,39 +19,39 @@ mat1 <- matrix(data = combined_data, nrow = 2, byrow = T)
 print(mat1)
 ```
 
-\textbf{Create a 3 by 3 matrix consisting of the numbers 1 through 9 using 1:9 directly. Row 1 (1,2,3) Row 2 (4,5,6) Row 3 (7,8,9)}\
+\textbf{2) Create a 3 by 3 matrix consisting of the numbers 1 through 9 using 1:9 directly. Row 1 (1,2,3) Row 2 (4,5,6) Row 3 (7,8,9)}\
 
 ```{r}
 mat2 <- matrix(data = 1:9, nrow = 3, byrow = T)
 print(mat2)
 ```
 
-\textbf{Confirm that mat2 is a matrix}\
+\textbf{3) Confirm that mat2 is a matrix}\
 
 ```{r}
 is.matrix(mat2)
 ```
 
-\textbf{Create a 5 by 5 matrix consisting of the numbers 1-25 and assign it to mat3. Top row should be 1-5}\
+\textbf{4) Create a 5 by 5 matrix consisting of the numbers 1-25 and assign it to mat3. Top row should be 1-5}\
 
 ```{r}
 mat3 <- matrix(data = 1:25, nrow = 5, byrow = T)
 print(mat3)
 ```
 
-\textbf{Select the submatrix [[7,8], [12,13]]}\
+\textbf{5) Select the submatrix [[7,8], [12,13]]}\
 
 ```{r}
 mat3[2:3, 2:3]
 ```
 
-\textbf{Select the submatrix [[19,20], [24,25]]}\
+\textbf{6) Select the submatrix [[19,20], [24,25]]}\
 
 ```{r}
 mat3[4:5, 4:5]
 ```
 
-\textbf{Find out how to use runif() to create a 4 by 5 matrix consisting of 20 random numbers}\
+\textbf{7) Find out how to use runif() to create a 4 by 5 matrix consisting of 20 random numbers}\
 
 ```{r}
 help(runif)
