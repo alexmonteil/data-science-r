@@ -32,3 +32,53 @@ sorted_temps_asc <- order(df$temps) # Returns vector with sorted temp indices in
 df[sorted_temps_asc,] # Selects all rows but sorted by temps in ascending order
 sorted_temps_dsc <- order(-df$temps) # Returns vector with sorted temp indices in descending order
 df[sorted_temps_dsc,] # Selects all rows by sorted by temps in descending order
+
+# Data frames Operations
+
+# Creation
+
+c1 <- 1:10
+c2 <- letters[1:10]
+df <- data.frame(col.name.1 = c1, col.name.2 = c2)
+
+# Reading and Writing csv files
+
+write.csv(df, file = "saved_df.csv") # Writes data frame into csv file
+df2 <- read.csv('saved_df.csv') # Read csv file into variable
+
+# Counting rows and columns
+
+nrow(df)
+ncol(df)
+
+# Checking row and column names
+
+colnames(df)
+rownames(df) # Be careful with rownames if large number of rows could be slow
+
+# Data frame structure
+
+str(df)
+
+# Statistical summary
+
+summary(df)
+
+# Single cell selection
+
+df[[5,2]] # Returns cell at row 5 col 2
+df[[5,2]] <- "z" # Reassigns new value to cell at row 5 col 2
+
+# Row selection
+
+df[1:2,] # Returns rows 1 and 2
+
+# Column selection
+
+df[,1] # Returns column 1 (days) as vector
+df$days # Returns column 1 (days) as vector
+df[,"days"] # Returns column 1 (days) as vector
+df["days"] # Returns column 1 (days) as data frame
+
+
+
