@@ -1,0 +1,61 @@
+---
+title: "R - Data Wrangling Exercises"
+author: "Alex Monteil"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(dplyr)
+```
+
+
+\textbf{1) Using the built in mtcars data frame, return rows that have an mpg value greater than 20 and that have 6 cylinders}\
+
+
+```{r}
+filter(mtcars, mpg > 20, cyl == 6)
+```
+
+\textbf{2) Reorder the data frame by cyl first then descending wt}\
+
+```{r}
+arrange(mtcars, cyl, desc(wt))
+```
+
+\textbf{3) Select columns mpg and hp}\
+
+```{r}
+select(mtcars, mpg, hp)
+```
+
+\textbf{4) Select the unique values of the gear column}\
+
+```{r}
+distinct(select(mtcars, gear))
+```
+
+\textbf{5) Create a new column called performance which is calculated as: hp divided by wt}\
+
+```{r}
+mutate(mtcars, Performance = hp / wt)
+```
+
+\textbf{6) Find mean mpg value using dplyr}\
+
+```{r}
+summarise(mtcars, avg_mpg = mean(mpg, na.rm = T))
+```
+\textbf{7) Use pipe operators to get the mean hp value for cars with 6 cylinders}\
+
+```{r}
+mtcars %>% 
+  filter(cyl == 6) %>%
+  summarise(avg_hp = mean(hp, na.rm = T))
+```
+
