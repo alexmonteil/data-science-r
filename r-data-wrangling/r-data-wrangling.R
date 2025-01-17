@@ -6,6 +6,7 @@
 
 # filter() function: filters rows on conditions
 
+# flights is a built in data frame
 # selects rows where month == 11, day == 3 and carrier is American Airlines
 filter1 <- filter(flights, month == 11, day == 3, carrier == 'AA')
 
