@@ -7,57 +7,57 @@
 # filter() function: filters rows on conditions
 
 # selects rows where month == 11, day == 3 and carrier is American Airlines
-filter1 <- filter(data = flights, month == 11, day == 3, carrier == 'AA')
+filter1 <- filter(flights, month == 11, day == 3, carrier == 'AA')
 
 # slice() function: slices rows on indices
 
-slice1 <- slice(data = flights, 1:10) # Selects rows from the vector of indices
+slice1 <- slice(flights, 1:10) # Selects rows from the vector of indices
 
 # arrange() function: orders rows by columns passed as arguments
 
 # orders rows by year, then by month, then by day then by arr_time
-arranged1 <- arrange(data = flights, year, month, day, arr_time)
+arranged1 <- arrange(flights, year, month, day, arr_time)
 
 # orders rows by arr_time in descending order
-arranged2 <- arrange(data = flights, desc(arr_time))
+arranged2 <- arrange(flights, desc(arr_time))
 
 # select() function: selects a set of columns
 
-select1 <- select(data = flights, carrier) # Selects carrier column only
+select1 <- select(flights, carrier) # Selects carrier column only
 
 # rename() function: renames columns
 
-rename(data = flights, new_col_name = carrier) # Renames carrier column into new_col_name
+rename(flights, new_col_name = carrier) # Renames carrier column into new_col_name
 
 # distinct() function: selects distinct (unique) values in data frame
 
-distinct1 <- distinct(select(data = flights, carrier)) # Selects distinct carrier names
+distinct1 <- distinct(select(flights, carrier)) # Selects distinct carrier names
 
 # mutate() function: creates columns that are functions of existing columns 
 # and returns full data frame
 
-mutated1 <- mutate(data = flights, new_col = arr_delay - dep_delay)
+mutated1 <- mutate(flights, new_col = arr_delay - dep_delay)
 
 # transmute() function: creates columns that are functions of existing columns 
 # and returns just the new columns
 
-transmuted1 <- transmute(data = flights, new_col = arr_delay - dep_delay)
+transmuted1 <- transmute(flights, new_col = arr_delay - dep_delay)
 
 # summarise() function: returns new column with result of an aggregate function
 
 # aggregate function computes mean of air_time column and returns it in a column avg_air_time
-summarised1 <- summarise(data = flights, avg_air_time = mean(air_time, na.rm = T))
+summarised1 <- summarise(flights, avg_air_time = mean(air_time, na.rm = T))
 
 # aggregate function sums air_time column and returns it in a column total_air_time
-summarise2 <- summarise(data = flights, total_air_time = sum(air_time, na.rm = T))
+summarise2 <- summarise(flights, total_air_time = sum(air_time, na.rm = T))
 
 # sample_n() function: samples n rows at random from data frame
 
-sample1 <- sample_n(data = flights, n)
+sample1 <- sample_n(flights, n)
 
 # sample_frac() function: samples a percent of rows at random
 
-sample2 <- sample_frac(data = flights, 0.1) # Returns 10% of rows at random
+sample2 <- sample_frac(flights, 0.1) # Returns 10% of rows at random
 
 # Pipe operator
 
