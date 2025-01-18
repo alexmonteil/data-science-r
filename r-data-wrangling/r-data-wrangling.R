@@ -1,8 +1,8 @@
 # Dplyr
 
-#install.packages("dplyr")
-#library(dplyr)
-#library(nycflights13)
+# install.packages("dplyr")
+# library(dplyr)
+# library(nycflights13)
 
 # filter() function: filters rows on conditions
 
@@ -79,3 +79,41 @@ result <- mtcars %>%
           filter(mpg > 20) %>% 
           sample_n(size = 5) %>% 
           arrange(desc(mpg))
+
+# Tidyr
+
+# install.packages("tidyr")
+# install.packages("data.table")
+# library(tidyr)
+# library(data.table)
+
+# gather() function: Collapses columns into key pair values
+
+comp <- c(1,1,1,2,2,2,3,3,3)
+yr <- c(1998,1999,2000,1998,1999,2000,1998,1999,2000)
+q1 <- runif(9, min=0, max=100)
+q2 <- runif(9, min=0, max=100)
+q3 <- runif(9, min=0, max=100)
+q4 <- runif(9, min=0, max=100)
+
+df <- data.frame(comp = comp, year = yr, Qtr1 = q1, Qtr2 = q2, Qtr3 = q3, Qtr4 = q4)
+gathered_df <- gather(df, Quarter, Revenue, Qtr1:Qtr4)
+
+
+# spread() function: Opposite of spread, spreads key value pair into columns
+
+spread_df <- spread(gathered_df, Quarter, Revenue)
+
+# separate() function: separates a single character column into
+# multiple columns, separates the single column value by a defined separator
+
+df <- data.frame(single_col = c(NA, "a-x", "b-y", "c-z"))
+print(df)
+separated_df <- separate(data = df, col = single_col, into = c("abc", "xyz"), sep = "-")
+print(separated_df)
+
+# unite() function: Opposite of separate, unites multiple columns into a single column
+united_df <- unite(separated_df, single_united, abc, xyz, sep = "~")
+print(united_df)
+
+
