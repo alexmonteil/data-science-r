@@ -21,9 +21,35 @@ pl <- pl + geom_histogram(binwidth = 0.1, color = 'red', fill = 'pink', alpha = 
 
 pl <- pl + labs(x = "Movie Rating", y = "Count", title = "Movie ratings and their frequencies")
 
-# Theme
+# Theme layer
 
 pl <- pl + theme(plot.title = element_text(hjust = 0.5))
 
 print(pl)
+
+# Scatterplots
+
+# Data & Aesthetics layers
+
+pl2 <- ggplot(mtcars, aes(x = wt, y = mpg))
+
+# Geometry layer 
+
+pl2 <- pl2 + geom_point(aes(shape = factor(cyl), color = factor(cyl)), size = 5)
+
+# Labels and legends
+
+pl2 <- pl2 + labs(x = "Weight", 
+                  y = "Miles per gallon", 
+                  title = "Study of car weights and fuel efficiency",
+                  shape = "Cylinders",
+                  color = "Cylinders")
+
+# Theme layer
+
+pl2 <- pl2 + theme(plot.title = element_text(hjust = 0.5))
+
+print(pl2)
+
+
 
