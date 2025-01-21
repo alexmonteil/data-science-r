@@ -50,6 +50,3 @@ pl2 <- pl2 + labs(x = "Weight",
 pl2 <- pl2 + theme(plot.title = element_text(hjust = 0.5))
 
 print(pl2)
-
-
-
